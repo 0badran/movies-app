@@ -1,0 +1,9 @@
+.arrow{
+  background-color: black;
+  border: 0;
+  color: white;
+}
+
+.arrow:hover{
+  color: aqua;
+}
