@@ -1,19 +1,23 @@
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchResult from '../searchResult/SearchResult';
-import Image  from 'react-bootstrap/Image';
-
-
+import Image from 'react-bootstrap/Image';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSpinner } from '../../store/slices/setSpinner';
 
 function MyNavbar() {
   const [input, setInput] = useState("");
   const [searchList, setSearchList] = useState([]);
+  const navigate = useNavigate();
+  const user = useSelector(state => state.user.user.email).split("@")[0];
+  const dispatch = useDispatch();
   const API_KEI = import.meta.env.VITE_API_KEY;
   useEffect(() => {
+    console.log(user);
     axios.get("https://api.themoviedb.org/3/search/movie", {
       params: {
         api_key: API_KEI,
@@ -48,7 +52,15 @@ function MyNavbar() {
               value={input}
             />
           </Form>
-          <NavLink to="/login" className="bi bi-person-circle me-5 text-dark fs-2 d-none d-lg-block position-absolute end-0"></NavLink>
+          <NavLink onClick={() => {
+            dispatch(setSpinner(true))
+            setTimeout(() => {
+              dispatch(setSpinner(false))
+              navigate('/login')
+            }, 1000)
+          }} className="me-5 text-dark fs-2 d-none d-lg-block position-absolute end-0 text-decoration-none">
+            <i className='bi bi-person-circle fst-normal text-capitalize'> {user || ""}</i>
+          </NavLink>
         </Navbar.Collapse>
       </Navbar>
       <SearchResult list={searchList} input={setInput} />
@@ -56,4 +68,4 @@ function MyNavbar() {
   );
 }
 
-export default MyNavbar
+export default MyNavbar;

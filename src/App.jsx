@@ -10,6 +10,7 @@ import { persister, Store } from './store/store';
 import Home from './pages/home/Home';
 import instance from "./axiosConfig/instance";
 import { PersistGate } from 'redux-persist/integration/react';
+import MySpinner from './components/my-spinner/MySpinner';
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={Store}>
-      <PersistGate loading={null} persistor={persister}>
+      <PersistGate loading={<MySpinner/>} persistor={persister}>
         <div className='z-0 position-relative'>
           <RouterProvider router={router} />
         </div>

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFavorite } from '../../store/slices/favoriteMovie';
+import  Image  from 'react-bootstrap/Image';
 
 function Favorite() {
 
@@ -38,10 +39,14 @@ function Favorite() {
           </div>
         </div>
       }) 
-      : "not found"
+      : <div className='text-center mt-5 text-light'>
+        <Image  src='favorite_empty.png' width="200"/>
+        <h1 className='mb-3'>No favorites yet.</h1>
+        <p>Tap on the heart to add to your favorites!</p>
+        </div>
     }
   </>
 
 }
 
-export default Favorite
+export default Favorite;

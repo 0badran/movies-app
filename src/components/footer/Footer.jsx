@@ -5,7 +5,7 @@ function Footer() {
     // <!-- Footer -->
     <footer className="text-center text-lg-start bg-body-dark text-light">
       {/* Section: Social media */}
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <section className="d-flex justify-content-center justify-content-lg-between mt-3 p-4 border-top">
         {/* Left */}
         <div className="me-5 d-none d-lg-block">
           <span>Welcome you in my app</span>
@@ -16,7 +16,7 @@ function Footer() {
           <a href="https://www.facebook.com/0ahmedbadran" className="me-4 text-reset">
             <i className="bi bi-facebook" />
           </a>
-          <a href="badran7299@gmail.com" className="me-4 text-reset">
+          <a href="mailto:badran7299@gmail.com" className="me-4 text-reset">
             <i className="bi bi-google" />
           </a>
           <a href="https://www.linkedin.com/in/ahmedbadran72" className="me-4 text-reset">
