@@ -13,11 +13,11 @@ function MyNavbar() {
   const [input, setInput] = useState("");
   const [searchList, setSearchList] = useState([]);
   const navigate = useNavigate();
-  const user = useSelector(state => state.user.user.email).split("@")[0];
+  let user = useSelector(state => state.user.user);
+  user = user ? user.email.split("@")[0] : "";
   const dispatch = useDispatch();
   const API_KEI = import.meta.env.VITE_API_KEY;
   useEffect(() => {
-    console.log(user);
     axios.get("https://api.themoviedb.org/3/search/movie", {
       params: {
         api_key: API_KEI,
@@ -26,7 +26,7 @@ function MyNavbar() {
     }).then((res) => {
       setSearchList(res.data.results);
     });
-  }, [input]);
+  }, [API_KEI, input]);
 
 
   return (
@@ -59,7 +59,7 @@ function MyNavbar() {
               navigate('/login')
             }, 1000)
           }} className="me-5 text-dark fs-2 d-none d-lg-block position-absolute end-0 text-decoration-none">
-            <i className='bi bi-person-circle fst-normal text-capitalize'> {user || ""}</i>
+            <i className='bi bi-person-circle fst-normal text-capitalize'> {user}</i>
           </NavLink>
         </Navbar.Collapse>
       </Navbar>
