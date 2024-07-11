@@ -33,5 +33,20 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.1.0"
+  },
+  "optionalDependencies": {
+    "@swc/core-android-arm-eabi": "1.2.146",
+    "@swc/core-android-arm64": "1.2.146",
+    "@swc/core-darwin-arm64": "1.2.146",
+    "@swc/core-darwin-x64": "1.2.146",
+    "@swc/core-freebsd-x64": "1.2.146",
+    "@swc/core-linux-arm-gnueabihf": "1.2.146",
+    "@swc/core-linux-arm64-gnu": "1.2.146",
+    "@swc/core-linux-arm64-musl": "1.2.146",
+    "@swc/core-linux-x64-gnu": "1.2.146",
+    "@swc/core-linux-x64-musl": "1.2.146",
+    "@swc/core-win32-arm64-msvc": "1.2.146",
+    "@swc/core-win32-ia32-msvc": "1.2.146",
+    "@swc/core-win32-x64-msvc": "1.2.146"
   }
 }
