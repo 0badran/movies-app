@@ -1,5 +1,4 @@
 import Login from './pages/login/Login';
-import Register from './pages/register/Register';
 import AppRoutes from './AppRoutes';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Movies from './pages/movies/Movies';
@@ -25,12 +24,11 @@ const router = createBrowserRouter([
         }
       },
       { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
       { path: "favorite", element: <Favorite /> },
     ],
 
   },
-  { path: "*", element: <h1 className='text-center mt-5 text-light'>Not Found Pages <br /><span className='text-danger display-1'>404</span></h1> }
+  { path: "*", element: <h1 className='text-center mt-5 text-light'>Not Found<br /><span className='text-danger display-1'>404</span></h1> }
 ]);
 
 function App() {

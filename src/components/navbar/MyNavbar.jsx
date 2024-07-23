@@ -14,7 +14,7 @@ function MyNavbar() {
   const [searchList, setSearchList] = useState([]);
   const navigate = useNavigate();
   let user = useSelector(state => state.user.user);
-  user = user ? user.email.split("@")[0] : "";
+  user = user ? user.email: "";
   const dispatch = useDispatch();
   const API_KEI = import.meta.env.VITE_API_KEY;
   useEffect(() => {

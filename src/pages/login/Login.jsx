@@ -21,7 +21,7 @@ function Login() {
     const ele = e.target;
     if (ele.name == "email") {
       setForm({ ...form, email: ele.value });
-      setErrors({ ...errors, emailError: (ele.value.length == 0) ? "Email is required" : (/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(ele.value)) ? "" : "Invalid Email" })
+      setErrors({ ...errors, emailError: (ele.value.length == 0) ? "Username is required" : (/^[a-zA-Z0-9._%+-]{5,}$/.test(ele.value)) ? "" : "Username at latest 5 characters" })
     }
     else if (ele.name == "password") {
       setForm({ ...form, password: ele.value });
@@ -44,14 +44,14 @@ function Login() {
   }
 
 
-  return <div className="row vh-100" style={{ backgroundColor: "#F3EBE1", padding: "50px" }}>
+  return <div className="row vh-100" style={{ backgroundColor: "#F3EBE1", padding: "30px" }}>
     {/* login form */}
-    <form className="col col-lg-5 col-sm-12" onSubmit={(e) => { handleSubmit(e.preventDefault()); }} style={{ padding: "0 20px 0 20px", fontFamily: "-moz-initial" }}>
+    <form className="col-12 col-md-5" onSubmit={(e) => { handleSubmit(e.preventDefault()); }} style={{ padding: "0 20px 0 20px", fontFamily: "-moz-initial" }}>
       <h1 className="display-5">Bla!Bla! <span className="text-danger">...Bla!</span></h1>
       <h1 className="mt-5 mb-3">Login</h1>
       <div className="form-floating mb-3">
-        <input type="email" required name="email" id="InputEmail" className="form-control border-0 border-bottom border-dark rounded-0" placeholder="" onChange={(e) => { handleValidation(e) }} value={form.email} />
-        <label htmlFor="InputEmail" className="form-floating text-dark">Email address</label>
+        <input type="text" required name="email" id="InputEmail" autoComplete="off" autoFocus className="form-control border-0 border-bottom border-dark rounded-0" placeholder="" onChange={(e) => { handleValidation(e) }} value={form.email} />
+        <label htmlFor="InputEmail" className="form-floating text-dark">Username</label>
         <p className="text-danger">{errors.emailError}</p>
       </div>
       <div className="form-floating mb-3">
@@ -79,7 +79,7 @@ function Login() {
       </figure>
     </form>
     {/* image */}
-    <section className="col col-lg-7 col-sm-12" style={{ backgroundImage: "url(/login_back.png)" }}></section>
+    <section className="col d-none d-md-block" style={{ backgroundImage: "url(/login_back.png)" }}></section>
   </div>
 }
 
