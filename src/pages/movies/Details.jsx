@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function Details() {
   const movie = useLoaderData();
   return <>
-    <Card className="shadow text-bg-dark m-auto my-5" style={{ width: '18rem' }}>
+    <Card className="shadow text-bg-dark m-auto w-75 mt-3">
       <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>

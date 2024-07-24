@@ -63,7 +63,7 @@ function Login() {
         <input type="checkbox" onClick={() => { showPassword() }} style={{ backgroundColor: "#F3EBE1", color: "black" }} className="form-check-input border-1 border-dark rounded-0" id="exampleCheck1" />
         <label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
       </div>
-      <button type="submit" className="btn btn-danger w-100 rounded-0 mb-5">
+      <button type="submit" className="btn btn-danger w-100 rounded-0 mb-md-5">
         {
           loading ? <><span className="spinner-grow spinner-grow-sm" aria-hidden="true" />
             <span role="status"> Loading...</span></> : <span role="status">Submit</span>
@@ -73,7 +73,7 @@ function Login() {
         <blockquote className="blockquote">
           <p>A well-known quote, contained in a blockquote element.</p>
         </blockquote>
-        <figcaption className="blockquote-footer mt-5">
+        <figcaption className="blockquote-footer m-0 mt-md-5">
           Someone famous in <cite title="Source Title">Source Title</cite>
         </figcaption>
       </figure>

@@ -54,8 +54,8 @@ function Movies() {
         {movies.map((movie) => {
           let setClass = "bi bi-heart text-light me-4 mt-3 position-absolute end-0";
           favoriteMoviesId.find((id) => { if (id == movie.id) { setClass = "bi bi-heart-fill text-danger me-4 mt-3 position-absolute end-0" } });
-          return (<Col key={movie.id}>
-            <Card className='shadow text-bg-dark mt-3' style={{ width: '16rem', height: "98% " }} >
+          return (<Col key={movie.id} className='col-12 col-md-6 col-lg-3 mt-3'>
+            <Card className='shadow text-bg-dark' style={{ height: "100% " }} >
               <i className={setClass} type="button" onClick={(event) => { checkOnFavorite(event.target, movie) }}></i>
               <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
               <Card.Body type='button' onClick={() => navigate("/details/" + movie.id)}>

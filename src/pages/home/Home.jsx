@@ -71,11 +71,10 @@ function Home() {
       }
       <div className='text-white'>
         <h2>Plans</h2>
-        <section className='d-flex justify-content-between mt-3'>
+        <section className='row g-3'>
           {
-
             dataForPlan.map((plan, index) => {
-              return <Card key={index} style={{ width: '17rem', }} bg="dark" text='light' >
+              return <Card key={index} className='col-12 col-md-6 col-lg-3' bg="dark" text='light' >
                 <Card.Body>
                   <Card.Title>{plan.title}</Card.Title>
                   <Card.Subtitle>{plan.price}$</Card.Subtitle>
