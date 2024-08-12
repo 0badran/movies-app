@@ -71,10 +71,10 @@ function Home() {
       }
       <div className='text-white m-0 p-0'>
         <h2>Plans</h2>
-        <section className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-3'>
+        <section className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3'>
           {
             dataForPlan.map((plan, index) => {
-              return <Card key={index} className='col p-0 m-0' bg="dark" text='light' >
+              return <Card key={index} className='col' bg="dark" text='light' >
                 <Card.Body>
                   <Card.Title>{plan.title}</Card.Title>
                   <Card.Subtitle>{plan.price}$</Card.Subtitle>
