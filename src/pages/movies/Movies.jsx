@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../store/slices/favoriteMovie';
 import { moviesAction } from '../../store/slices/globalData';
 import "./Movies.css";
+import MySpinner from '../../components/my-spinner/MySpinner';
 
 
 
@@ -15,7 +16,7 @@ function Movies() {
   // Add to favorite
   const favoriteList = useSelector(state => state.favoriteList);
   const dispatchFavorite = useDispatch();
-  let favoriteMoviesId = favoriteList.map((fav) => { return fav.id; });
+  let favoriteMoviesId = favoriteList.map(fav => fav.id);
   function checkOnFavorite(heartEle, movie) {
     let emptyHeartIcon = heartEle.className.split(" ")[1];
     // If heart ele is empty
@@ -45,36 +46,36 @@ function Movies() {
   // API
   useEffect(() => {
     dispatchMovies(moviesAction(page));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page])
+  }, [dispatchMovies, page])
 
   return (
-    <>
-      <Row>
-        {movies.map((movie) => {
-          let setClass = "bi bi-heart text-light me-4 mt-3 position-absolute end-0";
-          favoriteMoviesId.find((id) => { if (id == movie.id) { setClass = "bi bi-heart-fill text-danger me-4 mt-3 position-absolute end-0" } });
-          return (<Col key={movie.id} className='col-12 col-md-6 col-lg-3 mt-3'>
-            <Card className='shadow text-bg-dark' style={{ height: "100% " }} >
-              <i className={setClass} type="button" onClick={(event) => { checkOnFavorite(event.target, movie) }}></i>
-              <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-              <Card.Body type='button' onClick={() => navigate("/details/" + movie.id)}>
-                <i className="bi bi-star-fill text-warning"> <i className='text-light'>{movie.vote_average}</i></i>
-                <Card.Title>{movie.title}</Card.Title>
-                <Card.Text>{movie.release_date}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>)
-        })}
-      </Row>
-      <Row>
-        <Col className='text-center display-6 mt-3 fw-bold text-light'>
-          <button hidden={page === 1} className="bi bi-arrow-left-circle-fill arrow" onClick={() => { setPage(page - 1); }}></button>
-          <span className='mx-5'>{page}</span>
-          <button hidden={page === 15} className="bi bi-arrow-right-circle-fill arrow" onClick={() => { setPage(page + 1); }}></button>
-        </Col>
-      </Row>
-    </>
+    movies.length ?
+      <>
+        <Row>
+          {movies.map((movie) => {
+            let setClass = "bi bi-heart text-light me-4 mt-3 position-absolute end-0";
+            favoriteMoviesId.find((id) => { if (id == movie.id) { setClass = "bi bi-heart-fill text-danger me-4 mt-3 position-absolute end-0" } });
+            return (<Col key={movie.id} className='col-12 col-md-6 col-lg-3 mt-3'>
+              <Card className='shadow text-bg-dark' style={{ height: "100% " }} >
+                <i className={setClass} type="button" onClick={(event) => { checkOnFavorite(event.target, movie) }}></i>
+                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+                <Card.Body type='button' onClick={() => navigate("/details/" + movie.id)}>
+                  <i className="bi bi-star-fill text-warning"> <i className='text-light'>{movie.vote_average}</i></i>
+                  <Card.Title>{movie.title}</Card.Title>
+                  <Card.Text>{movie.release_date}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>)
+          })}
+        </Row>
+        <Row>
+          <Col className='text-center display-6 mt-3 fw-bold text-light'>
+            <button hidden={page === 1} className="bi bi-arrow-left-circle-fill arrow" onClick={() => { setPage(page - 1); }}></button>
+            <span className='mx-5'>{page}</span>
+            <button hidden={page === 15} className="bi bi-arrow-right-circle-fill arrow" onClick={() => { setPage(page + 1); }}></button>
+          </Col>
+        </Row>
+      </> : <MySpinner />
   )
 
 

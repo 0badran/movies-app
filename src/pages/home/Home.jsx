@@ -27,8 +27,8 @@ function Home() {
               <Image src={`https://image.tmdb.org/t/p/w500${movies[1].poster_path}`} width={"33.33%"} rounded />
               <Image src={`https://image.tmdb.org/t/p/w500${movies[2].poster_path}`} width={"33.33%"} rounded />
               <Carousel.Caption>
-                <h2>{movies[0].title}</h2>
-                <p>{movies[0].overview}</p>
+                <h2 className='d-none d-md-block'>{movies[0].title}</h2>
+                <p className='d-none d-md-block'>{movies[0].overview}</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -36,8 +36,8 @@ function Home() {
               <Image src={`https://image.tmdb.org/t/p/w500${movies[4].poster_path}`} width={"33.33%"} rounded />
               <Image src={`https://image.tmdb.org/t/p/w500${movies[5].poster_path}`} width={"33.33%"} rounded />
               <Carousel.Caption>
-                <h2>{movies[3].title}</h2>
-                <p>{movies[3].overview}</p>
+                <h2 className='d-none d-md-block'>{movies[3].title}</h2>
+                <p className='d-none d-md-block'>{movies[3].overview}</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,8 +45,8 @@ function Home() {
               <Image src={`https://image.tmdb.org/t/p/w500${movies[7].poster_path}`} width={"33.33%"} rounded />
               <Image src={`https://image.tmdb.org/t/p/w500${movies[8].poster_path}`} width={"33.33%"} rounded />
               <Carousel.Caption>
-                <h2>{movies[6].title}</h2>
-                <p>{movies[6].overview}</p>
+                <h2 className='d-none d-md-block'>{movies[6].title}</h2>
+                <p className='d-none d-md-block'>{movies[6].overview}</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -69,12 +69,12 @@ function Home() {
           </div>
         </> : <MySpinner/>
       }
-      <div className='text-white'>
+      <div className='text-white m-0 p-0'>
         <h2>Plans</h2>
-        <section className='row g-3'>
+        <section className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-3'>
           {
             dataForPlan.map((plan, index) => {
-              return <Card key={index} className='col-12 col-md-6 col-lg-3' bg="dark" text='light' >
+              return <Card key={index} className='col p-0 m-0' bg="dark" text='light' >
                 <Card.Body>
                   <Card.Title>{plan.title}</Card.Title>
                   <Card.Subtitle>{plan.price}$</Card.Subtitle>
