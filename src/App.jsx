@@ -16,15 +16,15 @@ const router = createBrowserRouter([
   {
     path: "/", element: <AppRoutes />, children: [
       { index: true, element: <Home /> },
-      { path: "movies", element: <Movies /> },
+      { path: "/movie", element: <Movies /> },
       {
         path: "details/:id", element: <Details />, loader: async ({ params }) => {
           let res = await instance.get(params.id);
           return res.data
         }
       },
-      { path: "login", element: <Login /> },
-      { path: "favorite", element: <Favorite /> },
+      { path: "/login", element: <Login /> },
+      { path: "/favorite", element: <Favorite /> },
     ],
 
   },
