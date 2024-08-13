@@ -12,7 +12,7 @@ function AppRoutes() {
   const [showNavAndFooter, setShowNavAndFooter] = useState();
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname === "/login" || location.pathname === "/register") {
+    if (location.pathname === "/login") {
       setShowNavAndFooter(false);
     }
     else {

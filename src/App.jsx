@@ -15,7 +15,7 @@ import MySpinner from './components/my-spinner/MySpinner';
 const router = createBrowserRouter([
   {
     path: "/", element: <AppRoutes />, children: [
-      { index: true, element: <Home />, errorElement: <h1 className='text-center mt-5 text-danger'>Not found products</h1> },
+      { index: true, element: <Home /> },
       { path: "movies", element: <Movies /> },
       {
         path: "details/:id", element: <Details />, loader: async ({ params }) => {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={Store}>
-      <PersistGate loading={<MySpinner/>} persistor={persister}>
+      <PersistGate loading={<MySpinner />} persistor={persister}>
         <div className='z-0 position-relative'>
           <RouterProvider router={router} />
         </div>
