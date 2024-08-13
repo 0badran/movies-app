@@ -37,7 +37,7 @@ function MyNavbar() {
         <Navbar.Collapse id="basic-navbar-nav" >
           <Nav className='align-items-lg-center'>
             <NavLink to="/" className="me-2 mb-2 link-dark link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Home</NavLink>
-            <NavLink to="/movie" className="me-2 mb-2 link-dark link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Movies</NavLink>
+            <NavLink to="/movies" className="me-2 mb-2 link-dark link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Movies</NavLink>
             <NavLink to="/favorite" className="me-2 mb-2 link-dark link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Favorite</NavLink>
             <NavLink onClick={() => {
               dispatch(setSpinner(true))
