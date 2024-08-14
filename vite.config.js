@@ -7,7 +7,4 @@ const _plugins = [react()];
 _plugins.unshift(MillionLint.vite())
 export default defineConfig({
   plugins: _plugins,
-  server: {
-    historyApiFallback: true,
-  }
 });
