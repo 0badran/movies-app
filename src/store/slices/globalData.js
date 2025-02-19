@@ -2,7 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../../axiosConfig/instance";
 
 export const moviesAction = createAsyncThunk("getMovies", async (num) => {
-  const res = await instance.get("/popular", { params: { page: num } });
+  const res = await instance.get("", {
+    params: {
+      with_genres: 10751,
+      page: num
+    }
+  });
   return res.data.results;
 });
 
