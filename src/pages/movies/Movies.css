@@ -1,9 +1,16 @@
-.arrow{
+.arrow {
   background-color: black;
   border: 0;
   color: white;
 }
 
-.arrow:hover{
+.arrow:hover {
   color: aqua;
+}
+
+.text-ellipses {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-clamp: 1;
 }

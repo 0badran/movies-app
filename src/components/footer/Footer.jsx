@@ -26,9 +26,15 @@ function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           {[
-            { href: "https://www.facebook.com/0ahmedbadran", icon: "bi bi-facebook" },
+            {
+              href: "https://www.facebook.com/0ahmedbadran",
+              icon: "bi bi-facebook",
+            },
             { href: "mailto:badran7299@gmail.com", icon: "bi bi-google" },
-            { href: "https://www.linkedin.com/in/ahmedbadran72", icon: "bi bi-linkedin" },
+            {
+              href: "https://www.linkedin.com/in/ahmedbadran72",
+              icon: "bi bi-linkedin",
+            },
             { href: "https://www.github.com/0badran", icon: "bi bi-github" },
           ].map((link, index) => (
             <motion.a
@@ -60,9 +66,14 @@ function Footer() {
             transition={{ duration: 0.3 }}
           >
             <h6 className="text-uppercase fw-bold mb-4">
-              <p><i className="bi bi-gem" /> About us</p>
+              <p>
+                <i className="bi bi-gem" /> About us
+              </p>
             </h6>
-            <p>bla!bla!bla!</p>
+            <p>
+              A junior software developer with hands-on experience in Front-End
+              development.
+            </p>
           </motion.div>
 
           {/* Products */}
@@ -72,15 +83,19 @@ function Footer() {
             transition={{ duration: 0.3 }}
           >
             <h6 className="text-uppercase fw-bold mb-4">Products</h6>
-            {["Angular", "React", "Flask", "Nodejs"].map((product, index) => (
-              <motion.p
-                key={index}
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.2 }}
-              >
-                <a href="#!" className="text-reset">{product}</a>
-              </motion.p>
-            ))}
+            {["Nextjs", "React", "Tailwind", "ShadcnUI", "Framer Motion"].map(
+              (product, index) => (
+                <motion.p
+                  key={index}
+                  whileHover={{ x: 10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <a href="#!" className="text-reset">
+                    {product}
+                  </a>
+                </motion.p>
+              )
+            )}
           </motion.div>
 
           {/* Contact */}
@@ -90,9 +105,16 @@ function Footer() {
             transition={{ duration: 0.3 }}
           >
             <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i className="bi bi-house-door-fill me-3" /> Egypt, Mansoura</p>
-            <p><i className="bi bi-envelope-fill me-3" /> ahmedbadran_@outlook.com</p>
-            <p><i className="bi bi-phone-fill me-3" /> 01063806110</p>
+            <p>
+              <i className="bi bi-house-door-fill me-3" /> Egypt, Mansoura
+            </p>
+            <p>
+              <i className="bi bi-envelope-fill me-3" />{" "}
+              ahmedbadran_@outlook.com
+            </p>
+            <p>
+              <i className="bi bi-phone-fill me-3" /> 01063806110
+            </p>
           </motion.div>
         </div>
       </motion.section>
