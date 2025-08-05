@@ -76,11 +76,17 @@ function Movies() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Card className="shadow text-bg-dark h-100">
+                <Card
+                  className="shadow text-bg-dark h-100"
+                  type="button"
+                  onClick={() => navigate("/details/" + movie.id)}
+                  style={{ cursor: "pointer" }}
+                >
                   <i
                     className={setClass}
                     type="button"
                     onClick={(event) => {
+                      event.stopPropagation(); // Prevent Card Click
                       checkOnFavorite(event.target, movie);
                     }}
                     style={{ cursor: "pointer" }}
@@ -90,11 +96,7 @@ function Movies() {
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     className="img-fluid"
                   />
-                  <Card.Body
-                    type="button"
-                    onClick={() => navigate("/details/" + movie.id)}
-                    style={{ cursor: "pointer" }}
-                  >
+                  <Card.Body>
                     <i className="bi bi-star-fill text-warning">
                       {" "}
                       <i className="text-light">{movie.vote_average}</i>

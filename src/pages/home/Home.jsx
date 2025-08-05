@@ -6,6 +6,7 @@ import { dataForPlan } from "../../../public/data";
 import instance from "../../axiosConfig/instance";
 import MySpinner from "../../components/my-spinner/MySpinner";
 import MovieCarousel from "../../components/carousel/MovieCarousel";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -13,7 +14,7 @@ function Home() {
   useEffect(() => {
     (async () => {
       const res = await instance.get();
-      setMovies(res.data.results);
+      setMovies(res?.data?.results?.slice(10) || []);
     })();
   }, []);
 
@@ -32,7 +33,7 @@ function Home() {
           >
             <h2>Popular</h2>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
-              {movies.slice(9, 13).map((movie, index) => (
+              {movies.slice(6, 10).map((movie, index) => (
                 <motion.div
                   key={index}
                   className="col"
@@ -40,13 +41,18 @@ function Home() {
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="shadow-lg h-100">
-                    <Card.Img
-                      variant="top"
-                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                      className="rounded img-fluid"
-                    />
-                  </Card>
+                  <Link
+                    to={`/details/${movie.id}`}
+                    className="text-decoration-none"
+                  >
+                    <Card className="shadow-lg h-100">
+                      <Card.Img
+                        variant="top"
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        className="rounded img-fluid"
+                      />
+                    </Card>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -58,7 +64,7 @@ function Home() {
 
       {/* Plans Section */}
       <motion.div
-        className="text-white m-0 p-0"
+        className="text-white mb-4 p-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -81,11 +87,18 @@ function Home() {
                 <Card.Body>
                   <Card.Title>{plan.title}</Card.Title>
                   <Card.Subtitle>{plan.price}$</Card.Subtitle>
-                  <Card.Text className="small mt-3">{plan.description}</Card.Text>
-                  <Card.Text className="text-warning">{plan.daysFree}</Card.Text>
+                  <Card.Text className="small mt-3">
+                    {plan.description}
+                  </Card.Text>
+                  <Card.Text className="text-warning">
+                    {plan.daysFree}
+                  </Card.Text>
                   {plan.checks.map((checkText, i) => (
                     <Card.Text key={i} className="small">
-                      <p className="bi bi-check-circle-fill small"> {checkText}</p>
+                      <p className="bi bi-check-circle-fill small">
+                        {" "}
+                        {checkText}
+                      </p>
                     </Card.Text>
                   ))}
                   <Button variant="outline-warning" className="w-100">
