@@ -13,7 +13,11 @@ function Home() {
 
   useEffect(() => {
     (async () => {
-      const res = await instance.get();
+      const res = await instance.get("", {
+        params: {
+          with_genres: 10751,
+        },
+      });
       setMovies(res?.data?.results?.slice(10) || []);
     })();
   }, []);
